@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static  %}
+
+{% block title %}
+  <title>Script Hub|Login</title>
+{% endblock %}
+{% block content %}
+  <div class="container">
+      
+      <form action="{% url 'store:login_page' %}" method="POST">
+          {% csrf_token %}
+          <div id="form-control" style="color: darkgreen">
+              <label>Username</label>
+              <input type="text" name="username" class="form-control" placeholder="Enter Username" maxlength="50" required> 
+          </div>
+          <div id="form-control">
+          <label>Password</label>
+          <input type="password" name="password" class="form-control" placeholder="Enter Passwords" required>
+          </div>
+          {% for message in messages %}
+          <p class="successMsg">{{message}}</p>
+          {% endfor %}
+          <div id="haveAnAccount">
+              <p>Don't have an account ?</p></br>
+          </br> <a href="{% url 'store:register_page' %}" ><strong>Register</strong></a>
+          </div>
+          <button type="submit" href="#" id="submitButton">Login</button>
+        </form>
+        </div>
+  
+  
+{% endblock %}

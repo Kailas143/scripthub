@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}
+<title>ScriptHub|Search Box</title>
+{% endblock %}
+{% block content %}
+<div class = 'container'>
+    <div class = 'row'><h4>Searched Movies</h4></div>
+    <div class = 'row'>
+        {% if search_movie % }
+        {% for movies in search_movie %}
+        <div class = 'col-6 col-sm-4 col-md-4 col-lg-3 col-xl-2'>
+                <a href = "">
+                  <div>
+                    <div class="uk-card uk-card-default uk-card-body"> 
+                        <img src = "{{movies.cover_image.url}}">
+                       
+                    </div>
+                </div>
+              </a>
+              </div>
+            {% endfor %}
+        { % else %}
+        <div class = 'row'>
+                <h3>Book Not Available! Check Back Later</h3>
+            </div>
+        {% endif %}
+
+  
+{% endblock %}
